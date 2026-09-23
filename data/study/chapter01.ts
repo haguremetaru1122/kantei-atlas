@@ -4,7 +4,7 @@ const chapter = '総論 第1章';
 
 export const chapter01Outline: SectionOutline[] = [
   { chapter, section: '第1節', title: '不動産とその価格', id: 'ch1-s1' },
-  { chapter, section: '第2節', title: '不動産とその価格の特徴' },
+  { chapter, section: '第2節', title: '不動産とその価格の特徴', id: 'ch1-s2' },
   { chapter, section: '第3節', title: '不動産の鑑定評価' },
   { chapter, section: '第4節', title: '不動産鑑定士の責務' },
 ];
@@ -126,4 +126,180 @@ export const chapter01Section01: StudySection = {
   ],
 };
 
-export const studySections: StudySection[] = [chapter01Section01];
+const s2 = { chapter, section: '第2節' } as const;
+
+export const chapter01Section02: StudySection = {
+  id: 'ch1-s2',
+  chapter,
+  chapterTitle: '不動産の鑑定評価に関する基本的考察',
+  section: '第2節',
+  title: '不動産とその価格の特徴',
+  background: '/images/backgrounds/chapter01/section02_main.webp',
+  units: [
+    {
+      id: 'ch1-s2-001', ...s2, title: '土地は一般の諸財と異なる',
+      originalText: '不動産が国民の生活と活動に組み込まれどのように貢献しているかは具体的な価格として現れるものであるが、土地は他の一般の諸財と異なって次のような特性を持っている。',
+      explanation: '不動産がどう貢献しているかは価格に現れる。そして土地は、ほかの一般の財とは違う特性を持っている。',
+      keywords: ['具体的な価格', '一般の諸財', '特性'], characterId: 'shizen_r', skills: ['原文暗記'],
+    },
+    {
+      id: 'ch1-s2-002', ...s2, title: '自然的特性',
+      originalText: '（１）自然的特性として、地理的位置の固定性、不動性（非移動性）、永続性（不変性）、不増性、個別性（非同質性、非代替性）等を有し、固定的であって硬直的である。',
+      explanation: '自然的特性は5つ（地理的位置の固定性・不動性・永続性・不増性・個別性）。まとめると「固定的で硬直的」。',
+      keywords: ['地理的位置の固定性', '不動性', '永続性', '不増性', '個別性', '硬直的'], characterId: 'shizen_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/natural_and_human_traits.webp',
+    },
+    {
+      id: 'ch1-s2-003', ...s2, title: '人文的特性',
+      originalText: '（２）人文的特性として、用途の多様性（用途の競合、転換及び併存の可能性）、併合及び分割の可能性、社会的及び経済的位置の可変性等を有し、可変的であって伸縮的である。',
+      explanation: '人文的特性は3つ（用途の多様性・併合及び分割の可能性・社会的及び経済的位置の可変性）。まとめると「可変的で伸縮的」。自然的特性と正反対の言葉で締めくくられる。',
+      keywords: ['用途の多様性', '併合及び分割の可能性', '社会的及び経済的位置の可変性', '伸縮的'], characterId: 'jinbun_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/natural_and_human_traits.webp',
+    },
+    {
+      id: 'ch1-s2-004', ...s2, title: '条件を与件として利用される',
+      originalText: '不動産は、この土地の持つ諸特性に照応する特定の自然的条件及び人文的条件を与件として利用され、その社会的及び経済的な有用性を発揮するものである。そして、これらの諸条件の変化に伴って、その利用形態並びにその社会的及び経済的な有用性は変化する。',
+      explanation: '不動産は、土地の特性に応じた自然的条件・人文的条件を「与件」（前提として与えられたもの）として利用される。条件が変われば、利用形態も有用性も変わる。',
+      keywords: ['自然的条件', '人文的条件', '与件', '有用性'], characterId: 'jinbun_r', skills: ['原文暗記'],
+    },
+    {
+      id: 'ch1-s2-005', ...s2, title: '不動産の地域性',
+      originalText: '不動産は、また、その自然的条件及び人文的条件の全部又は一部を共通にすることによって、他の不動産とともにある地域を構成し、その地域の構成分子としてその地域との間に、依存、補完等の関係に及びその地域内の他の構成分子である不動産との間に協働、代替、競争等の関係にたち、これらの関係を通じてその社会的及び経済的な有用性を発揮するものである（不動産の地域性）。',
+      explanation: '不動産はほかの不動産と一緒に地域をつくる。地域とは「依存・補完」、地域内のほかの不動産とは「協働・代替・競争」の関係にある。これが不動産の地域性。',
+      keywords: ['依存', '補完', '協働', '代替', '競争', '不動産の地域性'], characterId: 'chiikisei_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/regional_relations.webp',
+    },
+    {
+      id: 'ch1-s2-006', ...s2, title: '地域の特性',
+      originalText: 'このような地域には、その規模、構成の内容、機能等に従って各種のものが認められるが、そのいずれもが、不動産の集合という意味において、個別の不動産の場合と同様に、特定の自然的条件及び人文的条件との関係を前提とする利用のあり方の同一性を基準として理解されるものであって、他の地域と区別されるべき特性をそれぞれ有するとともに、他の地域との間に相互関係にたち、この相互関係を通じて、その社会的及び経済的位置を占めるものである（地域の特性）。',
+      explanation: '地域は「利用のあり方の同一性」を基準に理解され、ほかの地域と区別される特性を持つ。ほかの地域との相互関係を通じて、社会的・経済的な位置を占める。これが地域の特性。',
+      keywords: ['利用のあり方の同一性', '相互関係', '地域の特性'], characterId: 'chiikisei_r', skills: ['原文暗記'],
+    },
+    {
+      id: 'ch1-s2-007', ...s2, title: '価格にも特徴がある',
+      originalText: 'このような不動産の特徴により、不動産の価格についても、他の一般の諸財の価格と異なって、およそ次のような特徴を指摘することができる。',
+      explanation: '不動産そのものに特徴があるので、その価格にも一般の財とは違う特徴（次の（１）〜（４））がある。',
+      keywords: ['一般の諸財の価格', '特徴'], characterId: 'tokuchou_r', skills: ['原文暗記'],
+    },
+    {
+      id: 'ch1-s2-008', ...s2, title: '価格と賃料（元本と果実）',
+      originalText: '（１）不動産の経済価値は、一般に、交換の対価である価格として表示されるとともに、その用益の対価である賃料として表示される。そして、この価格と賃料との間には、いわゆる元本と果実との間に認められる相関関係を認めることができる。',
+      explanation: '経済価値は「価格」（交換の対価）と「賃料」（用益の対価）の2つで表される。価格と賃料は、元本と果実のような関係にある。',
+      keywords: ['交換の対価', '用益の対価', '元本と果実'], characterId: 'tokuchou_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/principal_and_fruit.webp',
+    },
+    {
+      id: 'ch1-s2-009', ...s2, title: '権利の対価',
+      originalText: '（２）不動産の価格（又は賃料）は、その不動産に関する所有権、賃借権等の権利の対価又は経済的利益の対価であり、また、二つ以上の権利利益が同一の不動産の上に存する場合には、それぞれの権利利益について、その価格（又は賃料）が形成され得る。',
+      explanation: '価格（賃料）は、所有権や賃借権などの権利の対価。一つの不動産の上に権利がいくつもあれば、それぞれに価格が形成されうる。',
+      keywords: ['所有権', '賃借権', '権利の対価', '権利利益'], characterId: 'tokuchou_r', skills: ['原文暗記'],
+    },
+    {
+      id: 'ch1-s2-010', ...s2, title: '長期的な考慮',
+      originalText: '（３）不動産の属する地域は固定的なものではなくて、常に拡大縮小、集中拡散、発展衰退等の変化の過程にあるものであるから、不動産の利用形態が最適なものであるかどうか、仮に現在最適なものであっても、時の経過に伴ってこれを持続できるかどうか、これらは常に検討されなければならない。したがって、不動産の価格（又は賃料）は、通常、過去と将来とにわたる長期的な考慮の下に形成される。今日の価格（又は賃料）は、昨日の展開であり、明日を反映するものであって常に変化の過程にあるものである。',
+      explanation: '地域は常に変化している（拡大縮小・集中拡散・発展衰退）。だから価格は、過去と将来にわたる長期的な考慮の下で形成される。今日の価格は昨日の展開で、明日を反映する。',
+      keywords: ['拡大縮小', '集中拡散', '発展衰退', '長期的な考慮', '昨日の展開'], characterId: 'tokuchou_r', skills: ['原文暗記'],
+    },
+    {
+      id: 'ch1-s2-011', ...s2, title: '鑑定評価が必要な理由',
+      originalText: '（４）不動産の現実の取引価格等は、取引等の必要に応じて個別的に形成されるのが通常であり、しかもそれは個別的な事情に左右されがちのものであって、このような取引価格等から不動産の適正な価格を見出すことは一般の人には非常に困難である。したがって、不動産の適正な価格については専門家としての不動産鑑定士の鑑定評価活動が必要となるものである。',
+      explanation: '現実の取引価格は個別的な事情に左右されがちで、そこから適正な価格を見つけるのは一般の人には非常に困難。だから専門家である不動産鑑定士の鑑定評価が必要になる。',
+      keywords: ['個別的な事情', '適正な価格', '専門家', '不動産鑑定士'], characterId: 'tokuchou_r', skills: ['原文暗記'],
+    },
+  ],
+  concepts: [
+    {
+      id: 'natural_and_human_traits', title: '自然的特性と人文的特性',
+      image: '/images/concepts/chapter01/natural_and_human_traits.webp', unitIds: ['ch1-s2-002', 'ch1-s2-003'],
+      caption: '自然的特性（5つ）は「固定的・硬直的」、人文的特性（3つ）は「可変的・伸縮的」。正反対の二つの顔。',
+    },
+    {
+      id: 'regional_relations', title: '不動産の地域性',
+      image: '/images/concepts/chapter01/regional_relations.webp', unitIds: ['ch1-s2-005'],
+      caption: '地域とは依存・補完、地域内のほかの不動産とは協働・代替・競争の関係。',
+    },
+    {
+      id: 'principal_and_fruit', title: '元本と果実',
+      image: '/images/concepts/chapter01/principal_and_fruit.webp', unitIds: ['ch1-s2-008'],
+      caption: '価格（交換の対価）が木なら、賃料（用益の対価）はその実。二つは相関関係にある。',
+    },
+  ],
+  characters: [
+    {
+      id: 'shizen_r', name: '自然的特性', rarity: 'R', epithet: '動かぬ大地の古老',
+      image: '/images/characters/chapter01/shizen_r.png',
+      unitIds: ['ch1-s2-001', 'ch1-s2-002'],
+      motifs: ['地理的位置の固定性', '不動性', '永続性', '不増性', '個別性', '固定的・硬直的'],
+      profile: '一歩も動かず、増えず、消えず、同じものは二つとない。土地そのものの頑固さを体現する古老。',
+      artSpec: {
+        silhouette: '大柄な老人の男性。白い長い髭と太い眉、短く刈った白髪。岩に根を張るように座り込む、どっしりした重いシルエット',
+        palette: ['岩の灰色', '苔の緑', '焦げ茶'],
+        props: ['地面に食い込んだ岩の足もと', '周りに立つ5つの石碑（固定・不動・永続・不増・個別）', '一点だけを指す動かない羅針盤'],
+        mustDifferFrom: '若い女性キャラ（更地・不動産・価格）と正反対の、老いた大柄な男性にする',
+      },
+    },
+    {
+      id: 'jinbun_r', name: '人文的特性', rarity: 'R', epithet: '変幻の街づくり少年',
+      image: '/images/characters/chapter01/jinbun_r.png',
+      unitIds: ['ch1-s2-003', 'ch1-s2-004'],
+      motifs: ['用途の多様性', '併合及び分割の可能性', '位置の可変性', '可変的・伸縮的'],
+      profile: '同じ土地を店にも家にも畑にも変え、つなげたり分けたりする。人の手で変わっていく土地の顔。',
+      artSpec: {
+        silhouette: '小柄で活発な少年。つんつんした短髪、ゴーグル。跳ねるように動く、軽くて伸びやかなシルエット',
+        palette: ['橙', '空色', '白'],
+        props: ['組み替えられる積み木のような街区ブロック（併合・分割）', '家・店・工場に変わる多機能の道具（用途の多様性）', '上下に動く矢印の旗（位置の可変性）'],
+        mustDifferFrom: '自然的特性の老人と正反対（小柄・軽快・明るい色）にする',
+      },
+    },
+    {
+      id: 'chiikisei_r', name: '地域性', rarity: 'R', epithet: '街をつなぐ世話役',
+      image: '/images/characters/chapter01/chiikisei_r.png',
+      unitIds: ['ch1-s2-005', 'ch1-s2-006'],
+      motifs: ['依存・補完', '協働・代替・競争', '利用のあり方の同一性', '地域の特性'],
+      profile: '家々をつなぎ、地域をまとめる世話役。不動産は一軒だけでは語れない、と教えてくれる。',
+      artSpec: {
+        silhouette: '落ち着いた大人の女性（30〜40代）。ショートヘアと眼鏡。腕を広げて周りをまとめる、面倒見のよい立ち姿',
+        palette: ['えんじ', '生成り', '真鍮色'],
+        props: ['糸でつながった小さな家の模型たち（依存・補完・協働）', '区画ごとに色分けされた地域の地図', '町内の腕章'],
+        mustDifferFrom: '長髪の若い女性（更地・価格）と似せない。年齢・髪型・色を変える',
+      },
+    },
+    {
+      id: 'tokuchou_r', name: '価格の特徴', rarity: 'R', epithet: '時を量る鑑定の旅人',
+      image: '/images/characters/chapter01/tokuchou_r.png',
+      unitIds: ['ch1-s2-007', 'ch1-s2-008', 'ch1-s2-009', 'ch1-s2-010', 'ch1-s2-011'],
+      motifs: ['元本と果実', '権利の対価', '長期的な考慮', '鑑定評価の必要性'],
+      profile: '実のなる枝と砂時計、権利の鍵束を携えた旅人。不動産の価格が一般の財とどう違うのかを語る。',
+      artSpec: {
+        silhouette: '背の高い青年男性。後ろで束ねた黒髪、落ち着いた表情。旅のコートを羽織った縦長のシルエット',
+        palette: ['深い紺', '金', '葡萄色'],
+        props: ['実のなる小枝（元本と果実＝価格と賃料）', '権利の鍵束（所有権・賃借権）', '過去と未来を示す砂時計（長期的な考慮）', '鑑定士の徽章'],
+        mustDifferFrom: '女性キャラ・少年・老人と重ならない、背の高い青年にする',
+      },
+    },
+  ],
+  questions: [
+    { id: 'q2-001-a', unitId: 'ch1-s2-001', skill: '原文暗記', type: 'blank', prompt: '空欄に入る語句は？', answer: '具体的な価格', choices: ['具体的な価格', '経済価値', '市場価値', '取引価格'] },
+    { id: 'q2-002-a', unitId: 'ch1-s2-002', skill: '原文暗記', type: 'pick', prompt: '「自然的特性」にあたるものをすべて選ぼう', answers: ['地理的位置の固定性', '不動性', '永続性', '不増性', '個別性'], choices: ['地理的位置の固定性', '用途の多様性', '不動性', '永続性', '併合及び分割の可能性', '不増性', '個別性', '社会的及び経済的位置の可変性'] },
+    { id: 'q2-002-b', unitId: 'ch1-s2-002', skill: '原文暗記', type: 'blank', prompt: '自然的特性のまとめの言葉は？', answer: '硬直的', choices: ['硬直的', '伸縮的', '可変的', '安定的'] },
+    { id: 'q2-002-c', unitId: 'ch1-s2-002', skill: '原文暗記', type: 'blank', prompt: '空欄に入る語句は？', answer: '非代替性', choices: ['非代替性', '非移動性', '不変性', '非同質性'] },
+    { id: 'q2-003-a', unitId: 'ch1-s2-003', skill: '原文暗記', type: 'pick', prompt: '「人文的特性」にあたるものをすべて選ぼう', answers: ['用途の多様性', '併合及び分割の可能性', '社会的及び経済的位置の可変性'], choices: ['用途の多様性', '不増性', '併合及び分割の可能性', '永続性', '社会的及び経済的位置の可変性', '個別性'] },
+    { id: 'q2-003-b', unitId: 'ch1-s2-003', skill: '原文暗記', type: 'blank', prompt: '人文的特性のまとめの言葉は？', answer: '伸縮的', choices: ['伸縮的', '硬直的', '流動的', '弾力的'] },
+    { id: 'q2-004-a', unitId: 'ch1-s2-004', skill: '原文暗記', type: 'blank', prompt: '空欄に入る語句は？', answer: '与件', choices: ['与件', '前提', '条件', '基礎'] },
+    { id: 'q2-005-a', unitId: 'ch1-s2-005', skill: '原文暗記', type: 'order', prompt: '地域内のほかの不動産との関係を、原文の順に並べよう', items: ['協働', '代替', '競争'] },
+    { id: 'q2-005-b', unitId: 'ch1-s2-005', skill: '原文暗記', type: 'blank', prompt: '最後のかっこ書きに入る語句は？', answer: '不動産の地域性', choices: ['不動産の地域性', '地域の特性', '不動産の個別性', '地域の同一性'] },
+    { id: 'q2-006-a', unitId: 'ch1-s2-006', skill: '原文暗記', type: 'blank', prompt: '地域は何を基準として理解される？', answer: '利用のあり方の同一性', choices: ['利用のあり方の同一性', '価格水準の同一性', '用途の類似性', '行政区域の同一性'] },
+    { id: 'q2-006-b', unitId: 'ch1-s2-006', skill: '原文暗記', type: 'blank', prompt: '最後のかっこ書きに入る語句は？', answer: '地域の特性', choices: ['地域の特性', '不動産の地域性', '地域の同一性', '地域の個別性'] },
+    { id: 'q2-007-a', unitId: 'ch1-s2-007', skill: '原文暗記', type: 'blank', prompt: '空欄に入る語句は？', answer: '一般の諸財', choices: ['一般の諸財', '動産', '金融資産', '有価証券'] },
+    { id: 'q2-008-a', unitId: 'ch1-s2-008', skill: '原文暗記', type: 'blank', prompt: '価格と賃料の関係は、いわゆる何と何の関係？', answer: '元本と果実', choices: ['元本と果実', '資本と収益', '原因と結果', '親と子'] },
+    { id: 'q2-008-b', unitId: 'ch1-s2-008', skill: '原文暗記', type: 'blank', prompt: '賃料は何の対価？', answer: '用益の対価', choices: ['用益の対価', '交換の対価', '権利の対価', '使用の対価'] },
+    { id: 'q2-009-a', unitId: 'ch1-s2-009', skill: '原文暗記', type: 'blank', prompt: '空欄に入る語句は？', answer: '賃借権', choices: ['賃借権', '抵当権', '地役権', '使用借権'] },
+    { id: 'q2-010-a', unitId: 'ch1-s2-010', skill: '原文暗記', type: 'order', prompt: '地域の変化を、原文の順に並べよう', items: ['拡大縮小', '集中拡散', '発展衰退'] },
+    { id: 'q2-010-b', unitId: 'ch1-s2-010', skill: '原文暗記', type: 'blank', prompt: '価格は何の下に形成される？', answer: '長期的な考慮', choices: ['長期的な考慮', '総合的な判断', '客観的な分析', '慎重な検討'] },
+    { id: 'q2-010-c', unitId: 'ch1-s2-010', skill: '原文暗記', type: 'blank', prompt: '今日の価格（又は賃料）は…', answer: '昨日の展開', choices: ['昨日の展開', '過去の集積', '昨日の結果', '過去の反映'] },
+    { id: 'q2-011-a', unitId: 'ch1-s2-011', skill: '原文暗記', type: 'blank', prompt: '取引価格は何に左右されがち？', answer: '個別的な事情', choices: ['個別的な事情', '市場の動向', '一時的な需給', '当事者の能力'] },
+    { id: 'q2-011-b', unitId: 'ch1-s2-011', skill: '原文暗記', type: 'blank', prompt: '空欄に入る語句は？', answer: '専門家', choices: ['専門家', '第三者', '公的機関', '資格者'] },
+  ],
+};
+
+export const studySections: StudySection[] = [chapter01Section01, chapter01Section02];

@@ -89,7 +89,7 @@ export function StudyHub({ progress, onStart, onOpenCharacter }: { progress: Stu
       <section className="skill-board ornate" aria-label="分野別の習熟度">
         <h2>鑑定士の力</h2>
         <div className="skill-row"><span>原文暗記</span><Meter value={memory} label="原文暗記の習熟度" /><b>{memory}</b></div>
-        <p className="small-print">いま学べる範囲（第1章第1節）での習熟度です。類型判定・地域分析・評価方式などの分野は、章を増やすたびに追加します。</p>
+        <p className="small-print">いま学べる範囲（{studySections.map(s => `${s.chapter.replace('総論 ', '')}${s.section}`).join('・')}）での習熟度です。類型判定・地域分析・評価方式などの分野は、章を増やすたびに追加します。</p>
       </section>
       <section className="chapter-card ornate" aria-label="総論 第1章">
         <span className="chapter-label">総論 第1章</span>
@@ -112,7 +112,7 @@ export function StudyHub({ progress, onStart, onOpenCharacter }: { progress: Stu
           })}
         </ol>
         <div className="mini-characters">
-          {studySections[0].characters.map(c => <button key={c.id} className={progress.registered.includes(c.id) ? 'got' : ''} onClick={() => onOpenCharacter(c.id)}>
+          {studyCharacters.map(c => <button key={c.id} className={progress.registered.includes(c.id) ? 'got' : ''} onClick={() => onOpenCharacter(c.id)}>
             <span>{c.rarity}</span><b>{c.name}</b><small>{progress.registered.includes(c.id) ? `習熟度 ${characterMastery(progress, c)}` : '未登録'}</small>
           </button>)}
         </div>
@@ -256,7 +256,7 @@ function Quiz({ question: q, section, number, total, onAnswer, onNext, last }: {
   </div>;
 }
 
-export function StudyCharacterCard({ character: c, progress, onStudy }: { character: StudyCharacter; progress: StudyProgress; onStudy: () => void }) {
+export function StudyCharacterCard({ character: c, progress, onStudy }: { character: StudyCharacter; progress: StudyProgress; onStudy: (sectionId: string) => void }) {
   const got = progress.registered.includes(c.id);
   const section = studySections.find(s => s.characters.some(x => x.id === c.id))!;
   return <div className="collection-layout">
@@ -271,7 +271,7 @@ export function StudyCharacterCard({ character: c, progress, onStudy }: { charac
           {c.unitIds.map(id => { const u = section.units.find(x => x.id === id)!; return <div key={id} className="unit-mastery"><p className="original-text small"><em>原文</em>{u.originalText}</p><div className="skill-row"><span>{u.title}</span><Meter value={unitMastery(progress, id)} label={`${u.title}の習熟度`} /><b>{unitMastery(progress, id)}</b></div></div>; })}
         </div>
       </> : <div className="definition parchment"><h3>登録条件</h3><p>{section.chapter}{section.section}の問題で、この仲間が担当する原文（{c.unitIds.length}つ）それぞれに1回以上正解する。</p></div>}
-      <button className="gold-button" onClick={onStudy}>{section.section}を学ぶ ❯</button>
+      <button className="gold-button" onClick={() => onStudy(section.id)}>{section.section}を学ぶ ❯</button>
     </section>
   </div>;
 }
