@@ -3,10 +3,11 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { cases, source } from '@/data/cases';
 import { hints, phases, sarachiOriginal } from '@/data/learning';
+import sarachiArt from '@/public/art/sarachi.png';
 
 type Records = Record<string, number>;
 type View = 'home' | 'quests' | 'play' | 'collection' | 'notebook' | 'finish';
-function Character({className=''}:{className?:string}) {return <Image className={`character ${className}`} src="/art/sarachi.png" alt="更地の精霊。白い花、緑と白の衣装、紅白の測量杖を持つ案内役" width={1086} height={1448} priority sizes="(max-width: 700px) 70vw, 600px"/>;}
+function Character({className=''}:{className?:string}) {return <Image className={`character ${className}`} src={sarachiArt} alt="更地の精霊。白い花、緑と白の衣装、紅白の測量杖を持つ案内役" priority sizes="(max-width: 700px) 70vw, 600px"/>;}
 export default function Home() {
  const [view,setView]=useState<View>('home');
  const [order,setOrder]=useState([0,1,2,3]); const [pos,setPos]=useState(0);
