@@ -153,7 +153,7 @@ export function Lesson({ sectionId, mode, progress, onProgress, onExit, onReview
   const correctCount = results.filter(Boolean).length;
   const remaining = sectionReview(progress, section).length;
 
-  return <main className="study-stage" style={{ backgroundImage: `linear-gradient(180deg,#101c1ee0,#111a1cf2 60%), url(${asset(section.background)})` }}>
+  return <main className="study-stage" style={{ backgroundImage: `linear-gradient(180deg,#101c1e8c,#111a1cd9 55%), url(${asset(section.background)})` }}>
     <header className="study-head">
       <div><span className="chapter-label">{section.chapter} {section.section}{mode === 'review' ? ' ・ 復習' : ''}</span><h1 ref={heading} tabIndex={-1}>{section.title}</h1></div>
       <button className="dark-button" onClick={onExit}>学習トップへ</button>

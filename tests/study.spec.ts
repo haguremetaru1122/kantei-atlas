@@ -22,8 +22,13 @@ test('第1章第1節：原文→イメージ→仲間→問題→図鑑登録→
   for (const u of section.units) await expect(page.locator('.original-text').filter({ hasText: u.originalText.split('\n')[0] }).first()).toBeVisible();
   await page.getByRole('button', { name: /イメージで覚える/ }).click();
   await expect(page.getByRole('heading', { name: '土地とその定着物' })).toBeVisible();
+  await expect.poll(() => page.locator('.concept-art img').evaluateAll(els => els.map(e => (e as HTMLImageElement).naturalWidth > 0))).toEqual([true, true]);
   await page.getByRole('button', { name: /仲間に会う/ }).click();
-  await expect(page.getByRole('img', { name: /不動産（画像準備中）/ })).toBeVisible();
+  for (const name of ['不動産の立ち絵', '価格の立ち絵']) {
+    const img = page.getByRole('img', { name });
+    await expect(img).toBeVisible();
+    expect(await img.evaluate((el: HTMLImageElement) => el.naturalWidth)).toBeGreaterThan(0);
+  }
   await page.getByRole('button', { name: /問題に挑む/ }).click();
 
   const miss = 'q-002-a';

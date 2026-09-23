@@ -14,7 +14,9 @@
 - public/art/shop-street.webp：案件3 借地権付き店舗
 - public/art/riverside-apartment.webp：案件4 賃貸マンション一棟
 
-## 基準学習モード：第1章第1節の画像（未作成・差し込み口のみ用意）
+## 基準学習モード：第1章第1節の画像（2026-09-23 5点とも組み込み済み）
+
+ユーザーがChatGPTで生成して提供。概念絵2点の中の文字（「不動産は、通常、土地とその定着物をいう。」「相対的稀少性」など）は原文と一致することを確認済み。R不動産は白背景をrembg（isnet-anime）で透過、R価格は元から透過。実際のデザインは当初の指定と違うため、data/study/chapter01.ts の artSpec を実物に合わせて更新した。
 
 画像ファイルを下のパスに置くだけで自動的に表示される。無い間は「画像準備中」の枠が出る。
 パスと各キャラの見た目の指定は `data/study/chapter01.ts`（image / conceptImage / background / artSpec）が正。
