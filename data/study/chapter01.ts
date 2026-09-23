@@ -5,7 +5,7 @@ const chapter = '総論 第1章';
 export const chapter01Outline: SectionOutline[] = [
   { chapter, section: '第1節', title: '不動産とその価格', id: 'ch1-s1' },
   { chapter, section: '第2節', title: '不動産とその価格の特徴', id: 'ch1-s2' },
-  { chapter, section: '第3節', title: '不動産の鑑定評価' },
+  { chapter, section: '第3節', title: '不動産の鑑定評価', id: 'ch1-s3' },
   { chapter, section: '第4節', title: '不動産鑑定士の責務' },
 ];
 
@@ -302,4 +302,129 @@ export const chapter01Section02: StudySection = {
   ],
 };
 
-export const studySections: StudySection[] = [chapter01Section01, chapter01Section02];
+const s3 = { chapter, section: '第3節' } as const;
+
+export const chapter01Section03: StudySection = {
+  id: 'ch1-s3',
+  chapter,
+  chapterTitle: '不動産の鑑定評価に関する基本的考察',
+  section: '第3節',
+  title: '不動産の鑑定評価',
+  background: '/images/backgrounds/chapter01/section03_main.webp',
+  units: [
+    {
+      id: 'ch1-s3-001', ...s3, title: '鑑定評価に依存せざるを得ない',
+      originalText: 'このように一般の諸財と異なる不動産についてその適正な価格を求めるためには、鑑定評価の活動に依存せざるを得ないこととなる。',
+      explanation: '不動産は一般の財と違う（第2節）。だから適正な価格を求めるには、鑑定評価の活動に頼るしかない。',
+      keywords: ['一般の諸財', '適正な価格', '鑑定評価の活動'], characterId: 'kanteihyouka_r', skills: ['原文暗記'],
+    },
+    {
+      id: 'ch1-s3-002', ...s3, title: '鑑定評価とは',
+      originalText: '不動産の鑑定評価は、その対象である不動産の経済価値を判定し、これを貨幣額をもって表示することである。',
+      explanation: '鑑定評価＝経済価値を「判定」して、「貨幣額」で表示すること。',
+      keywords: ['経済価値', '判定', '貨幣額'], characterId: 'kanteihyouka_r', skills: ['原文暗記'],
+    },
+    {
+      id: 'ch1-s3-003', ...s3, title: '鑑定評価の6つの段階',
+      originalText: 'それは、この社会における一連の価格秩序の中で、その不動産の価格及び賃料がどのような所に位するかを指摘することであって、\n（１）鑑定評価の対象となる不動産の的確な認識の上に、\n（２）必要とする関連資料を十分に収集して、これを整理し、\n（３）不動産の価格を形成する要因及び不動産の価格に関する諸原則についての十分な理解のもとに、\n（４）鑑定評価の手法を駆使して、その間に、\n（５）既に収集し、整理されている関連諸資料を具体的に分析して、対象不動産に及ぼす自然的、社会的、経済的及び行政的な要因の影響を判断し、\n（６）対象不動産の経済価値に関する最終判断に到達し、これを貨幣額をもって表示するものである。',
+      explanation: '鑑定評価は、価格秩序の中でその不動産がどこに位置するかを指摘すること。認識→収集・整理→要因と諸原則の理解→手法の駆使→分析・判断→最終判断と表示、の6段階で進む。',
+      keywords: ['一連の価格秩序', '的確な認識', '関連資料', '諸原則', '鑑定評価の手法', '最終判断'], characterId: 'kanteihyouka_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/appraisal_six_steps.webp',
+    },
+    {
+      id: 'ch1-s3-004', ...s3, title: '判断の当否を決めるもの',
+      originalText: 'この判断の当否は、これら各段階のそれぞれについての不動産鑑定士の能力の如何及びその能力の行使の誠実さの如何に係るものであり、また、必要な関連諸資料の収集整理の適否及びこれらの諸資料の分析解釈の練達の程度に依存するものである。',
+      explanation: '判断が正しいかどうかは、鑑定士の「能力」と「誠実さ」、そして資料の「収集整理の適否」と「分析解釈の練達の程度」で決まる。',
+      keywords: ['当否', '能力', '誠実さ', '収集整理の適否', '練達の程度'], characterId: 'rentatsu_r', skills: ['原文暗記'],
+    },
+    {
+      id: 'ch1-s3-005', ...s3, title: '練達堪能な専門家',
+      originalText: 'したがって、鑑定評価は、高度な知識と豊富な経験及び的確な判断力を持ち、さらに、これらが有機的かつ総合的に発揮できる練達堪能な専門家によってなされるとき、初めて合理的であって、客観的に論証できるものとなるのである。',
+      explanation: '高度な知識・豊富な経験・的確な判断力の3つを持ち、それを有機的かつ総合的に発揮できる練達堪能な専門家が行って、初めて鑑定評価は合理的で客観的に論証できるものになる。',
+      keywords: ['高度な知識', '豊富な経験', '的確な判断力', '有機的かつ総合的', '練達堪能'], characterId: 'rentatsu_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/expert_qualities.webp',
+    },
+    {
+      id: 'ch1-s3-006', ...s3, title: '専門家の判断であり意見',
+      originalText: '不動産の鑑定評価とは、現実の社会経済情勢の下で合理的と考えられる市場で形成されるであろう市場価値を表示する適正な価格を、不動産鑑定士が的確に把握する作業に代表されるように、練達堪能な専門家によって初めて可能な仕事であるから、このような意味において、不動産の鑑定評価とは、不動産の価格に関する専門家の判断であり、意見であるといってよいであろう。',
+      explanation: '市場価値を表示する適正な価格を的確に把握するのは、練達堪能な専門家にしかできない仕事。だから鑑定評価は「専門家の判断であり、意見」といえる。',
+      keywords: ['合理的と考えられる市場', '市場価値', '専門家の判断', '意見'], characterId: 'rentatsu_r', skills: ['原文暗記'],
+    },
+    {
+      id: 'ch1-s3-007', ...s3, title: '社会的公共的意義',
+      originalText: 'それはまた、この社会における一連の価格秩序のなかで、対象不動産の価格の占める適正なあり所を指摘することであるから、その社会的公共的意義は極めて大きいといわなければならない。',
+      explanation: '鑑定評価は、価格秩序の中で対象不動産の価格の「適正なあり所」を指し示すもの。だから社会的公共的意義は極めて大きい。',
+      keywords: ['一連の価格秩序', '適正なあり所', '社会的公共的意義'], characterId: 'kanteihyouka_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/price_order.webp',
+    },
+  ],
+  concepts: [
+    {
+      id: 'appraisal_six_steps', title: '鑑定評価の6つの段階',
+      image: '/images/concepts/chapter01/appraisal_six_steps.webp', unitIds: ['ch1-s3-003'],
+      caption: '認識 → 収集・整理 → 要因と諸原則の理解 → 手法の駆使 → 分析・判断 → 最終判断と貨幣額での表示。',
+    },
+    {
+      id: 'expert_qualities', title: '練達堪能な専門家',
+      image: '/images/concepts/chapter01/expert_qualities.webp', unitIds: ['ch1-s3-005'],
+      caption: '高度な知識・豊富な経験・的確な判断力を、有機的かつ総合的に発揮する。そのとき初めて合理的で、客観的に論証できる。',
+    },
+    {
+      id: 'price_order', title: '一連の価格秩序',
+      image: '/images/concepts/chapter01/price_order.webp', unitIds: ['ch1-s3-003', 'ch1-s3-007'],
+      caption: '社会の中に並ぶたくさんの価格。その中で、対象不動産の価格の適正なあり所を指し示す。',
+    },
+  ],
+  characters: [
+    {
+      id: 'kanteihyouka_r', name: '鑑定評価', rarity: 'R', epithet: '価格のあり所を照らす者',
+      image: '/images/characters/chapter01/kanteihyouka_r.webp',
+      unitIds: ['ch1-s3-001', 'ch1-s3-002', 'ch1-s3-003', 'ch1-s3-007'],
+      motifs: ['経済価値の判定', '貨幣額での表示', '6つの段階', '一連の価格秩序', '社会的公共的意義'],
+      profile: '六つの灯をともすランタンで一段ずつ道を照らし、価格秩序の中で不動産の価格があるべき場所を指し示す。',
+      artSpec: {
+        silhouette: '30代のがっしりした体格の男性。赤茶色の短髪、片眼鏡（モノクル）。ベストに腕まくりの仕事着で、ランタンを掲げて前を指さす立ち姿',
+        palette: ['からし色', 'チャコールグレー', '銅色'],
+        props: ['6つの小さな灯がともるランタン（6つの段階）', '金額を書き込む羽根ペンと証書（貨幣額での表示）', '片眼鏡', '鑑定士の徽章'],
+        mustDifferFrom: '価格の特徴（背の高い細身の青年・束ねた黒髪・コート）や自然的特性の老人と似せない。がっしり体型・短い赤茶髪・コートなし',
+      },
+    },
+    {
+      id: 'rentatsu_r', name: '練達堪能', rarity: 'R', epithet: '三つの力を束ねる師',
+      image: '/images/characters/chapter01/rentatsu_r.webp',
+      unitIds: ['ch1-s3-004', 'ch1-s3-005', 'ch1-s3-006'],
+      motifs: ['能力と誠実さ', '高度な知識', '豊富な経験', '的確な判断力', '有機的かつ総合的', '専門家の判断・意見'],
+      profile: '知識の書、経験の杖、判断の天秤。三つを一本の糸で結び、ひとつの力として使いこなす老練な師。',
+      artSpec: {
+        silhouette: '60〜70代の老婦人。白髪をきっちりまとめたお団子、背筋の伸びた凛とした立ち姿。ゆったりしたローブ',
+        palette: ['紫', '銀', '白'],
+        props: ['厚い本（高度な知識）', '年輪の刻まれた木の杖（豊富な経験）', '天秤（的確な判断力）', '三つを結ぶ光る糸（有機的かつ総合的）'],
+        mustDifferFrom: '若い女性キャラ（更地・不動産・価格）や眼鏡の地域性と似せない。年配・白髪のお団子・紫系',
+      },
+    },
+  ],
+  questions: [
+    { id: 'q3-001-a', unitId: 'ch1-s3-001', skill: '原文暗記', type: 'blank', prompt: '適正な価格を求めるには、何に依存せざるを得ない？', answer: '鑑定評価の活動', choices: ['鑑定評価の活動', '市場の取引', '公的な評価', '行政の判断'] },
+    { id: 'q3-002-a', unitId: 'ch1-s3-002', skill: '原文暗記', type: 'blank', prompt: '空欄に入る語句は？', answer: '判定', choices: ['判定', '算定', '査定', '評定'] },
+    { id: 'q3-002-b', unitId: 'ch1-s3-002', skill: '原文暗記', type: 'blank', prompt: '空欄に入る語句は？', answer: '貨幣額', choices: ['貨幣額', '価格', '金額', '数値'] },
+    { id: 'q3-003-a', unitId: 'ch1-s3-003', skill: '原文暗記', type: 'order', prompt: '鑑定評価の6つの段階を、原文の順に並べよう', items: ['的確な認識', '関連資料を十分に収集', '諸原則についての十分な理解', '鑑定評価の手法を駆使', '関連諸資料を具体的に分析', '最終判断に到達'] },
+    { id: 'q3-003-b', unitId: 'ch1-s3-003', skill: '原文暗記', type: 'blank', prompt: 'この社会における一連の何の中で？', answer: '価格秩序', choices: ['価格秩序', '市場構造', '需給関係', '価格体系'] },
+    { id: 'q3-003-c', unitId: 'ch1-s3-003', skill: '原文暗記', type: 'blank', prompt: '（１）空欄に入る語句は？', answer: '的確な認識', choices: ['的確な認識', '正確な把握', '十分な調査', '適切な確定'] },
+    { id: 'q3-003-d', unitId: 'ch1-s3-003', skill: '原文暗記', type: 'blank', prompt: '（４）鑑定評価の手法を…', answer: '駆使', choices: ['駆使', '適用', '併用', '選択'] },
+    { id: 'q3-003-e', unitId: 'ch1-s3-003', skill: '原文暗記', type: 'pick', prompt: '（５）で影響を判断する要因をすべて選ぼう', answers: ['自然的', '社会的', '経済的', '行政的'], choices: ['自然的', '法律的', '社会的', '経済的', '技術的', '行政的'] },
+    { id: 'q3-004-a', unitId: 'ch1-s3-004', skill: '原文暗記', type: 'blank', prompt: '空欄に入る語句は？', answer: '当否', choices: ['当否', '適否', '正否', '成否'] },
+    { id: 'q3-004-b', unitId: 'ch1-s3-004', skill: '原文暗記', type: 'blank', prompt: '能力の行使の何の如何？', answer: '誠実さ', choices: ['誠実さ', '公正さ', '慎重さ', '的確さ'] },
+    { id: 'q3-004-c', unitId: 'ch1-s3-004', skill: '原文暗記', type: 'blank', prompt: '諸資料の分析解釈の…', answer: '練達の程度', choices: ['練達の程度', '経験の多寡', '熟練の度合', '知識の深さ'] },
+    { id: 'q3-005-a', unitId: 'ch1-s3-005', skill: '原文暗記', type: 'order', prompt: '専門家が持つ3つのものを、原文の順に並べよう', items: ['高度な知識', '豊富な経験', '的確な判断力'] },
+    { id: 'q3-005-b', unitId: 'ch1-s3-005', skill: '原文暗記', type: 'blank', prompt: 'これらが何に発揮できる専門家？', answer: '有機的かつ総合的', choices: ['有機的かつ総合的', '客観的かつ合理的', '継続的かつ安定的', '独立的かつ公正'] },
+    { id: 'q3-005-c', unitId: 'ch1-s3-005', skill: '原文暗記', type: 'blank', prompt: '空欄に入る語句は？', answer: '練達堪能', choices: ['練達堪能', '経験豊富', '高度専門', '公正中立'] },
+    { id: 'q3-005-d', unitId: 'ch1-s3-005', skill: '原文暗記', type: 'blank', prompt: '初めて合理的であって、…できるものとなる', answer: '客観的に論証', choices: ['客観的に論証', '論理的に説明', '公正に判断', '合理的に算定'] },
+    { id: 'q3-006-a', unitId: 'ch1-s3-006', skill: '原文暗記', type: 'blank', prompt: '何と考えられる市場で形成される？', answer: '合理的', choices: ['合理的', '理想的', '標準的', '一般的'] },
+    { id: 'q3-006-b', unitId: 'ch1-s3-006', skill: '原文暗記', type: 'blank', prompt: '空欄に入る語句は？', answer: '市場価値', choices: ['市場価値', '経済価値', '取引価格', '正常価格'] },
+    { id: 'q3-006-c', unitId: 'ch1-s3-006', skill: '原文暗記', type: 'blank', prompt: '鑑定評価とは、専門家の判断であり、何である？', answer: '意見', choices: ['意見', '結論', '証明', '査定'] },
+    { id: 'q3-007-a', unitId: 'ch1-s3-007', skill: '原文暗記', type: 'blank', prompt: '対象不動産の価格の占める…を指摘する', answer: '適正なあり所', choices: ['適正なあり所', '正しい水準', '妥当な位置', '合理的な範囲'] },
+    { id: 'q3-007-b', unitId: 'ch1-s3-007', skill: '原文暗記', type: 'blank', prompt: 'その何は極めて大きい？', answer: '社会的公共的意義', choices: ['社会的公共的意義', '経済的社会的役割', '公共的使命', '専門的責任'] },
+  ],
+};
+
+export const studySections: StudySection[] = [chapter01Section01, chapter01Section02, chapter01Section03];

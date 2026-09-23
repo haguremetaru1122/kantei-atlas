@@ -46,6 +46,19 @@
 | 概念絵（正方形WebP） | public/images/concepts/chapter01/regional_relations.webp | 不動産の地域性：地域とは依存・補完、地域内の不動産とは協働・代替・競争 |
 | 概念絵（正方形WebP） | public/images/concepts/chapter01/principal_and_fruit.webp | 元本と果実：価格（交換の対価）＝木、賃料（用益の対価）＝実 |
 
+## 基準学習モード：第1章第3節の画像（2026-09-23 未作成。置けば自動で表示される）
+
+指定の正は `data/study/chapter01.ts` の chapter01Section03。
+
+| 種類 | パス | 内容 |
+|---|---|---|
+| 立ち絵（透過・縦長。PNGで渡せばWebPに変換） | public/images/characters/chapter01/kanteihyouka_r.webp | R 鑑定評価：30代のがっしりした男性・赤茶の短髪・片眼鏡・ベストに腕まくり・6つの灯のランタン（6つの段階）・羽根ペンと証書（貨幣額での表示）・鑑定士の徽章・からし色/チャコール/銅色 |
+| 立ち絵（透過・縦長。PNGで渡せばWebPに変換） | public/images/characters/chapter01/rentatsu_r.webp | R 練達堪能：60〜70代の老婦人・白髪のお団子・凛とした立ち姿・ローブ・厚い本（知識）・年輪の杖（経験）・天秤（判断力）・三つを結ぶ光る糸（有機的かつ総合的）・紫/銀/白 |
+| 背景（横長WebP） | public/images/backgrounds/chapter01/section03_main.webp | 第1章第3節の学習画面の背景 |
+| 概念絵（正方形WebP） | public/images/concepts/chapter01/appraisal_six_steps.webp | 鑑定評価の6つの段階（（１）〜（６）） |
+| 概念絵（正方形WebP） | public/images/concepts/chapter01/expert_qualities.webp | 練達堪能な専門家：高度な知識・豊富な経験・的確な判断力を有機的かつ総合的に |
+| 概念絵（正方形WebP） | public/images/concepts/chapter01/price_order.webp | 一連の価格秩序の中で、対象不動産の価格の適正なあり所を指摘する |
+
 ## 保存先と使用プロンプト
 
 ### public/art/sarachi.png
