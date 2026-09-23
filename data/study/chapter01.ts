@@ -83,7 +83,7 @@ export const chapter01Section01: StudySection = {
   characters: [
     {
       id: 'fudousan_r', name: '不動産', rarity: 'R', epithet: '大地と定着物の守り手',
-      image: '/images/characters/chapter01/fudousan_r.png',
+      image: '/images/characters/chapter01/fudousan_r.webp',
       unitIds: ['ch1-s1-001', 'ch1-s1-002', 'ch1-s1-003', 'ch1-s1-004'],
       motifs: ['土地', '建物（定着物）', '境界', '社会の基盤'],
       profile: '街の地図を抱え、裾には石垣の上に建つ家やビル。土地とその定着物をひとつにまとい、人々の暮らしと活動を下から支える。',
@@ -96,7 +96,7 @@ export const chapter01Section01: StudySection = {
     },
     {
       id: 'kakaku_r', name: '価格', rarity: 'R', epithet: '三つの光を束ねる者',
-      image: '/images/characters/chapter01/kakaku_r.png',
+      image: '/images/characters/chapter01/kakaku_r.webp',
       unitIds: ['ch1-s1-005', 'ch1-s1-006', 'ch1-s1-007', 'ch1-s1-008'],
       motifs: ['効用', '相対的稀少性', '有効需要', '貨幣額'],
       profile: '三つの光――効用・相対的稀少性・有効需要――を束ね、不動産の経済価値を貨幣額で示す。',
@@ -227,7 +227,7 @@ export const chapter01Section02: StudySection = {
   characters: [
     {
       id: 'shizen_r', name: '自然的特性', rarity: 'R', epithet: '動かぬ大地の古老',
-      image: '/images/characters/chapter01/shizen_r.png',
+      image: '/images/characters/chapter01/shizen_r.webp',
       unitIds: ['ch1-s2-001', 'ch1-s2-002'],
       motifs: ['地理的位置の固定性', '不動性', '永続性', '不増性', '個別性', '固定的・硬直的'],
       profile: '一歩も動かず、増えず、消えず、同じものは二つとない。土地そのものの頑固さを体現する古老。',
@@ -240,7 +240,7 @@ export const chapter01Section02: StudySection = {
     },
     {
       id: 'jinbun_r', name: '人文的特性', rarity: 'R', epithet: '変幻の街づくり少年',
-      image: '/images/characters/chapter01/jinbun_r.png',
+      image: '/images/characters/chapter01/jinbun_r.webp',
       unitIds: ['ch1-s2-003', 'ch1-s2-004'],
       motifs: ['用途の多様性', '併合及び分割の可能性', '位置の可変性', '可変的・伸縮的'],
       profile: '同じ土地を店にも家にも畑にも変え、つなげたり分けたりする。人の手で変わっていく土地の顔。',
@@ -253,7 +253,7 @@ export const chapter01Section02: StudySection = {
     },
     {
       id: 'chiikisei_r', name: '地域性', rarity: 'R', epithet: '街をつなぐ世話役',
-      image: '/images/characters/chapter01/chiikisei_r.png',
+      image: '/images/characters/chapter01/chiikisei_r.webp',
       unitIds: ['ch1-s2-005', 'ch1-s2-006'],
       motifs: ['依存・補完', '協働・代替・競争', '利用のあり方の同一性', '地域の特性'],
       profile: '家々をつなぎ、地域をまとめる世話役。不動産は一軒だけでは語れない、と教えてくれる。',
@@ -266,7 +266,7 @@ export const chapter01Section02: StudySection = {
     },
     {
       id: 'tokuchou_r', name: '価格の特徴', rarity: 'R', epithet: '時を量る鑑定の旅人',
-      image: '/images/characters/chapter01/tokuchou_r.png',
+      image: '/images/characters/chapter01/tokuchou_r.webp',
       unitIds: ['ch1-s2-007', 'ch1-s2-008', 'ch1-s2-009', 'ch1-s2-010', 'ch1-s2-011'],
       motifs: ['元本と果実', '権利の対価', '長期的な考慮', '鑑定評価の必要性'],
       profile: '実のなる枝と砂時計、権利の鍵束を携えた旅人。不動産の価格が一般の財とどう違うのかを語る。',

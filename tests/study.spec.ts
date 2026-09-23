@@ -86,3 +86,17 @@ test('第1章第1節：間違えると復習対象に残り、未登録のまま
   await page.getByRole('button', { name: '学習トップへ' }).first().click();
   await expect(page.getByRole('button', { name: `復習 ${section.questions.length}問` })).toBeVisible();
 });
+
+test('第1章第2節：立ち絵4人と概念絵3枚が表示される', async ({ page }) => {
+  await page.goto('/');
+  await openSection(page, 1);
+  await page.getByRole('button', { name: /イメージで覚える/ }).click();
+  await expect.poll(() => page.locator('.concept-art img').evaluateAll(els => els.map(e => (e as HTMLImageElement).naturalWidth > 0))).toEqual([true, true, true]);
+  await page.getByRole('button', { name: /仲間に会う/ }).click();
+  for (const name of ['自然的特性', '人文的特性', '地域性', '価格の特徴']) {
+    const img = page.getByRole('img', { name: `${name}の立ち絵` });
+    await expect(img).toBeAttached();
+    await expect.poll(() => img.evaluate((el: HTMLImageElement) => el.naturalWidth)).toBeGreaterThan(0);
+  }
+  await expect(page.locator('.art-placeholder')).toHaveCount(0);
+});

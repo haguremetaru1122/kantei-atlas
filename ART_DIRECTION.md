@@ -23,24 +23,24 @@
 
 | 種類 | パス | 内容 |
 |---|---|---|
-| キャラ立ち絵（背景透過PNG・縦長3:4） | public/images/characters/chapter01/fudousan_r.png | R 不動産：がっしりした青年〜壮年男性・短髪・背に小さな家（定着物）・足もとに地面と境界杭・土色/石/木/深緑 |
-| キャラ立ち絵（背景透過PNG・縦長3:4） | public/images/characters/chapter01/kakaku_r.png | R 価格：小柄で快活な少年または少女・ショートボブ・周りに3つの光球（効用＝芽吹く苗、相対的稀少性＝数少ない宝石、有効需要＝硬貨を握る手）・金/藍/白 |
+| キャラ立ち絵（透過WebP・縦長3:4。PNGで渡せば変換） | public/images/characters/chapter01/fudousan_r.webp | R 不動産（実物）：茶髪をまとめた少女・街区の地図ボード・家の飾り・石垣の上に家とビルが並ぶ柄のスカート・土色/茶/深緑/白 |
+| キャラ立ち絵（透過WebP・縦長3:4。PNGで渡せば変換） | public/images/characters/chapter01/kakaku_r.webp | R 価格（実物）：銀の長髪の女性・三つの光球（効用＝緑の芽、相対的稀少性＝青い宝石、有効需要＝赤い人々）・羅針盤の紋の本・白/藍/金 |
 | 背景（横長WebP） | public/images/backgrounds/chapter01/section01_main.webp | 第1章第1節の学習画面の背景。暗めに重ねるので細部は控えめでよい |
-| 概念イラスト（3:2 WebP） | public/images/concepts/chapter01/land_and_fixture.webp | 「土地とその定着物」 |
-| 概念イラスト（3:2 WebP） | public/images/concepts/chapter01/utility_scarcity_demand.webp | 「効用・相対的稀少性・有効需要」の三者と価格 |
+| 概念イラスト（正方形WebP） | public/images/concepts/chapter01/land_and_fixture.webp | 「土地とその定着物」 |
+| 概念イラスト（正方形WebP） | public/images/concepts/chapter01/utility_scarcity_demand.webp | 「効用・相対的稀少性・有効需要」の三者と価格 |
 
 キャラ同士・更地と、体格・髪型・色・年齢感・性別・持ち物を大きく変える。画像に文字は入れない。
 
-## 基準学習モード：第1章第2節の画像（未作成・差し込み口のみ用意）
+## 基準学習モード：第1章第2節の画像（2026-09-23 8点とも組み込み済み。概念絵の文字は原文と一致を確認）
 
 置けば自動で表示される。指定の正は `data/study/chapter01.ts` の chapter01Section02。
 
 | 種類 | パス | 内容 |
 |---|---|---|
-| 立ち絵（透過PNG・縦長） | public/images/characters/chapter01/shizen_r.png | R 自然的特性：大柄な老人男性・白い長い髭・短い白髪・岩に根を張るように座る・周りに5つの石碑（固定・不動・永続・不増・個別）・岩の灰/苔の緑/焦げ茶 |
-| 立ち絵（透過PNG・縦長） | public/images/characters/chapter01/jinbun_r.png | R 人文的特性：小柄で活発な少年・つんつん短髪・ゴーグル・組み替えられる街区ブロック（併合・分割）・家/店/工場に変わる道具（用途の多様性）・上下する矢印の旗（位置の可変性）・橙/空色/白 |
-| 立ち絵（透過PNG・縦長） | public/images/characters/chapter01/chiikisei_r.png | R 地域性：30〜40代の女性・ショートヘア・眼鏡・糸でつながった家の模型たち（依存・補完・協働）・色分けした地域の地図・町内の腕章・えんじ/生成り/真鍮色 |
-| 立ち絵（透過PNG・縦長） | public/images/characters/chapter01/tokuchou_r.png | R 価格の特徴：背の高い青年男性・後ろで束ねた黒髪・旅のコート・実のなる小枝（元本と果実）・権利の鍵束・砂時計（長期的な考慮）・鑑定士の徽章・紺/金/葡萄色 |
+| 立ち絵（透過・縦長。PNGで渡せばWebPに変換） | public/images/characters/chapter01/shizen_r.webp | R 自然的特性：大柄な老人男性・白い長い髭・短い白髪・岩に根を張るように座る・周りに5つの石碑（固定・不動・永続・不増・個別）・岩の灰/苔の緑/焦げ茶 |
+| 立ち絵（透過・縦長。PNGで渡せばWebPに変換） | public/images/characters/chapter01/jinbun_r.webp | R 人文的特性：小柄で活発な少年・つんつん短髪・ゴーグル・組み替えられる街区ブロック（併合・分割）・家/店/工場に変わる道具（用途の多様性）・上下する矢印の旗（位置の可変性）・橙/空色/白 |
+| 立ち絵（透過・縦長。PNGで渡せばWebPに変換） | public/images/characters/chapter01/chiikisei_r.webp | R 地域性：30〜40代の女性・ショートヘア・眼鏡・糸でつながった家の模型たち（依存・補完・協働）・色分けした地域の地図・町内の腕章・えんじ/生成り/真鍮色 |
+| 立ち絵（透過・縦長。PNGで渡せばWebPに変換） | public/images/characters/chapter01/tokuchou_r.webp | R 価格の特徴：背の高い青年男性・後ろで束ねた黒髪・旅のコート・実のなる小枝（元本と果実）・権利の鍵束・砂時計（長期的な考慮）・鑑定士の徽章・紺/金/葡萄色 |
 | 背景（横長WebP） | public/images/backgrounds/chapter01/section02_main.webp | 第1章第2節の学習画面の背景 |
 | 概念絵（正方形WebP） | public/images/concepts/chapter01/natural_and_human_traits.webp | 自然的特性（5つ・固定的・硬直的）と人文的特性（3つ・可変的・伸縮的）の対比 |
 | 概念絵（正方形WebP） | public/images/concepts/chapter01/regional_relations.webp | 不動産の地域性：地域とは依存・補完、地域内の不動産とは協働・代替・競争 |
