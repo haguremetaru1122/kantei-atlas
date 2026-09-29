@@ -27,6 +27,7 @@ export default function Home() {
  const mastered=Object.values(records).filter(n=>n===3).length;
  useEffect(()=>{try {const saved=JSON.parse(localStorage.getItem('kantei-quest-v2')||'null');const old=saved?.records??JSON.parse(localStorage.getItem('kantei-atlas-v1')||'{}');const valid:Records={};for(const item of cases)if(Number.isInteger(old?.[item.id])&&old[item.id]>=0&&old[item.id]<=3)valid[item.id]=old[item.id];setRecords(valid);setUnlocked(saved?.unlocked===true);setStudy(loadStudy());}catch{setNotice('この環境では記録を保存できません。今回のプレイは続けられます。');}setReady(true);return()=>{window.speechSynthesis?.cancel();};},[]);
  useEffect(()=>{heading.current?.focus({preventScroll:true});document.querySelectorAll('.game>main,.command-panel').forEach(el=>el.scrollTo({top:0}));},[phase,view,pos]);
+ useEffect(()=>{if(view!=='collection')return;const row=document.querySelector<HTMLElement>('.character-tabs');const tab=row?.querySelector<HTMLElement>('.active');if(row&&tab)row.scrollLeft=tab.offsetLeft-row.offsetLeft-(row.clientWidth-tab.offsetWidth)/2;},[view,collectionId]);
  function stop(){voiceGeneration.current++;window.speechSynthesis?.cancel();setSpeaking(false);}
  function navigate(next:View){stop();setVoiceNotice('');setDetail(false);setView(next);window.scrollTo({top:0});}
  function startLesson(sectionId:string,mode:'learn'|'review'){stop();setLesson(l=>({sectionId,mode,key:l.key+1}));setView('lesson');}

@@ -61,3 +61,12 @@ export interface StudySection {
 }
 
 export interface SectionOutline { chapter: string; section: string; title: string; id?: string }
+
+export interface StudyChapter {
+  id: string;
+  /** 例：「総論 第2章」 */
+  chapter: string;
+  title: string;
+  outline: SectionOutline[];
+  sections: StudySection[];
+}

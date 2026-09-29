@@ -1,5 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
-import { studySections } from '../data/study/chapter01';
+import { studySections } from '../data/study';
 import type { StudyQuestion } from '../data/study/types';
 
 async function solve(page: Page, q: StudyQuestion, correct: boolean) {
@@ -29,7 +29,7 @@ for (const [index, section] of studySections.entries()) {
     await page.getByRole('button', { name: /イメージで覚える/ }).click();
     for (const c of section.concepts) await expect(page.getByRole('heading', { name: c.title })).toBeVisible();
     await page.getByRole('button', { name: /仲間に会う/ }).click();
-    for (const c of section.characters) await expect(page.getByRole('heading', { name: c.name, exact: true })).toBeVisible();
+    for (const c of section.characters) await expect(page.locator('.meet-grid').getByRole('heading', { name: c.name, exact: true })).toBeVisible();
     await page.getByRole('button', { name: /問題に挑む/ }).click();
 
     const miss = section.questions[1].id;
@@ -52,7 +52,7 @@ for (const [index, section] of studySections.entries()) {
 
     await page.reload();
     await page.getByRole('button', { name: 'キャラ図鑑', exact: true }).click();
-    await page.getByRole('tab', { name: new RegExp(section.characters[0].name) }).click();
+    await page.getByRole('tab', { name: new RegExp(`^${section.characters[0].rarity}\\s*${section.characters[0].name}$`) }).click();
     await expect(page.getByRole('heading', { name: '担当する原文' })).toBeVisible();
     await expect(page.locator('.collection-count')).toContainText(String(section.characters.length));
     expect(errors).toEqual([]);

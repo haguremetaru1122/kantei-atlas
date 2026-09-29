@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { chapter01Outline, studySections } from '@/data/study/chapter01';
+import { studyChapters, studySections } from '@/data/study';
 import type { Skill, StudyCharacter, StudyQuestion, StudySection } from '@/data/study/types';
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH || '';
@@ -81,42 +81,50 @@ function Meter({ value, label }: { value: number; label: string }) {
   return <div className="meter" role="meter" aria-label={label} aria-valuenow={value} aria-valuemin={0} aria-valuemax={100}><i style={{ width: `${value}%` }} /></div>;
 }
 
+const SKILL_ORDER: Skill[] = ['原文暗記', '類型判定', '地域分析', '個別分析', '価格形成要因', '最有効使用', '鑑定評価方式', '計算', '賃料評価', '各論', '実戦鑑定'];
+
 export function StudyHub({ progress, onStart, onOpenCharacter }: { progress: StudyProgress; onStart: (sectionId: string, mode: 'learn' | 'review') => void; onOpenCharacter: (id: string) => void }) {
-  const memory = skillScore(progress, '原文暗記') ?? 0;
+  const skills = SKILL_ORDER.flatMap(skill => { const score = skillScore(progress, skill); return score === null ? [] : [{ skill, score }]; });
+  const first = studyChapters[0].chapter, last = studyChapters[studyChapters.length - 1].chapter.replace('総論 ', '');
   return <>
     <div className="section-title"><div><small>STANDARD STUDY</small><h1 tabIndex={-1}>基準学習</h1></div><span className="study-note">原文を覚え、知識を仲間にする</span></div>
     <div className="study-hub">
       <section className="skill-board ornate" aria-label="分野別の習熟度">
         <h2>鑑定士の力</h2>
-        <div className="skill-row"><span>原文暗記</span><Meter value={memory} label="原文暗記の習熟度" /><b>{memory}</b></div>
-        <p className="small-print">いま学べる範囲（{studySections.map(s => `${s.chapter.replace('総論 ', '')}${s.section}`).join('・')}）での習熟度です。類型判定・地域分析・評価方式などの分野は、章を増やすたびに追加します。</p>
+        {skills.map(({ skill, score }) => <div key={skill} className="skill-row"><span>{skill}</span><Meter value={score} label={`${skill}の習熟度`} /><b>{score}</b></div>)}
+        <p className="small-print">いま学べる範囲（{first}〜{last}）での習熟度です。地域分析・評価方式などの分野は、章を増やすたびに追加します。</p>
       </section>
-      <section className="chapter-card ornate" aria-label="総論 第1章">
-        <span className="chapter-label">総論 第1章</span>
-        <h2>{studySections[0].chapterTitle}</h2>
-        <ol className="section-list">
-          {chapter01Outline.map(o => {
-            const section = studySections.find(s => s.id === o.id);
-            if (!section) return <li key={o.section} className="locked"><span>{o.section}</span><b>{o.title}</b><small>準備中</small></li>;
-            const reviewCount = sectionReview(progress, section).length;
-            const got = section.characters.filter(c => progress.registered.includes(c.id)).length;
-            const avg = Math.round(section.units.reduce((s, u) => s + unitMastery(progress, u.id), 0) / section.units.length);
-            return <li key={o.section}>
-              <span>{o.section}</span><b>{o.title}</b>
-              <small>習熟度 {avg} ・ 仲間 {got}/{section.characters.length}</small>
-              <div className="section-actions">
-                <button className="gold-button" onClick={() => onStart(section.id, 'learn')}>学ぶ <span>❯</span></button>
-                {reviewCount > 0 && <button className="dark-button" onClick={() => onStart(section.id, 'review')}>復習 {reviewCount}問</button>}
-              </div>
-            </li>;
-          })}
-        </ol>
-        <div className="mini-characters">
-          {studyCharacters.map(c => <button key={c.id} className={progress.registered.includes(c.id) ? 'got' : ''} onClick={() => onOpenCharacter(c.id)}>
-            <span>{c.rarity}</span><b>{c.name}</b><small>{progress.registered.includes(c.id) ? `習熟度 ${characterMastery(progress, c)}` : '未登録'}</small>
-          </button>)}
-        </div>
-      </section>
+      <div className="chapter-stack">
+        {studyChapters.map(ch => {
+          const characters = ch.sections.flatMap(s => s.characters);
+          return <section key={ch.id} className="chapter-card ornate" aria-label={ch.chapter}>
+            <span className="chapter-label">{ch.chapter}</span>
+            <h2>{ch.title}</h2>
+            <ol className="section-list">
+              {ch.outline.map(o => {
+                const section = studySections.find(s => s.id === o.id);
+                if (!section) return <li key={o.section} className="locked"><span>{o.section}</span><b>{o.title}</b><small>準備中</small></li>;
+                const reviewCount = sectionReview(progress, section).length;
+                const got = section.characters.filter(c => progress.registered.includes(c.id)).length;
+                const avg = Math.round(section.units.reduce((s, u) => s + unitMastery(progress, u.id), 0) / section.units.length);
+                return <li key={o.section}>
+                  <span>{o.section}</span><b>{o.title}</b>
+                  <small>習熟度 {avg} ・ 仲間 {got}/{section.characters.length}</small>
+                  <div className="section-actions">
+                    <button className="gold-button" onClick={() => onStart(section.id, 'learn')}>学ぶ <span>❯</span></button>
+                    {reviewCount > 0 && <button className="dark-button" onClick={() => onStart(section.id, 'review')}>復習 {reviewCount}問</button>}
+                  </div>
+                </li>;
+              })}
+            </ol>
+            <div className="mini-characters">
+              {characters.map(c => <button key={c.id} className={progress.registered.includes(c.id) ? 'got' : ''} onClick={() => onOpenCharacter(c.id)}>
+                <span>{c.rarity}</span><b>{c.name}</b><small>{progress.registered.includes(c.id) ? `習熟度 ${characterMastery(progress, c)}` : '未登録'}</small>
+              </button>)}
+            </div>
+          </section>;
+        })}
+      </div>
     </div>
   </>;
 }

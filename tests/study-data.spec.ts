@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { studySections } from '../data/study/chapter01';
+import { studySections } from '../data/study';
 
 const flat = (s: string) => s.replace(/=== p\.\d+ ===/g, '').replace(/^\s*\d+\s*$/gm, '').replace(/\s+/g, '');
 const source = flat(readFileSync(join(__dirname, '..', 'sources', '不動産鑑定評価基準.txt'), 'utf8'));
@@ -22,6 +22,7 @@ for (const section of studySections) {
         expect(new Set(q.choices).size, q.id).toBe(q.choices.length);
       } else if (q.type === 'pick') {
         for (const a of q.answers) { expect(text, q.id).toContain(a); expect(q.choices, q.id).toContain(a); }
+        for (const c of q.choices.filter(c => !q.answers.includes(c))) expect(text.includes(c), `${q.id} 誤りの選択肢「${c}」が原文に入っていない`).toBe(false);
       } else {
         let at = -1;
         for (const item of q.items) { const next = text.indexOf(item, at + 1); expect(next, `${q.id} ${item} が順に出る`).toBeGreaterThan(at); at = next; }

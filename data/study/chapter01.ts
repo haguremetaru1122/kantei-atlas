@@ -1,4 +1,4 @@
-import type { SectionOutline, StudySection } from './types';
+import type { SectionOutline, StudyChapter, StudySection } from './types';
 
 const chapter = '総論 第1章';
 
@@ -6,7 +6,7 @@ export const chapter01Outline: SectionOutline[] = [
   { chapter, section: '第1節', title: '不動産とその価格', id: 'ch1-s1' },
   { chapter, section: '第2節', title: '不動産とその価格の特徴', id: 'ch1-s2' },
   { chapter, section: '第3節', title: '不動産の鑑定評価', id: 'ch1-s3' },
-  { chapter, section: '第4節', title: '不動産鑑定士の責務' },
+  { chapter, section: '第4節', title: '不動産鑑定士の責務', id: 'ch1-s4' },
 ];
 
 export const chapter01Section01: StudySection = {
@@ -427,4 +427,137 @@ export const chapter01Section03: StudySection = {
   ],
 };
 
-export const studySections: StudySection[] = [chapter01Section01, chapter01Section02, chapter01Section03];
+const s4 = { chapter, section: '第4節' } as const;
+
+export const chapter01Section04: StudySection = {
+  id: 'ch1-s4',
+  chapter,
+  chapterTitle: '不動産の鑑定評価に関する基本的考察',
+  section: '第4節',
+  title: '不動産鑑定士の責務',
+  background: '/images/backgrounds/chapter01/section04_main.webp',
+  units: [
+    {
+      id: 'ch1-s4-001', ...s4, title: '土地についての基本的な認識',
+      originalText: '土地は、土地基本法に定める土地についての基本理念に即して利用及び取引が行われるべきであり、特に投機的取引の対象とされてはならないものである。不動産鑑定士は、このような土地についての基本的な認識に立って不動産の鑑定評価を行わなければならない。',
+      explanation: '土地は土地基本法の基本理念に沿って使い・取引するもので、投機の道具にしてはいけない。鑑定士はこの認識に立って鑑定評価を行う。',
+      keywords: ['土地基本法', '基本理念', '投機的取引', '基本的な認識'], characterId: 'sekimu_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/appraiser_duties.webp',
+    },
+    {
+      id: 'ch1-s4-002', ...s4, title: '社会一般の信頼と期待に報いる',
+      originalText: '不動産鑑定士は、不動産の鑑定評価を担当する者として、十分に能力のある専門家としての地位を不動産の鑑定評価に関する法律によって認められ、付与されるものである。したがって、不動産鑑定士は、不動産の鑑定評価の社会的公共的意義を理解し、その責務を自覚し、的確かつ誠実な鑑定評価活動の実践をもって、社会一般の信頼と期待に報いなければならない。',
+      explanation: '鑑定士は法律で専門家の地位を認められている。だから社会的公共的意義を理解し、責務を自覚し、的確かつ誠実な活動で社会一般の信頼と期待に報いる。',
+      keywords: ['専門家としての地位', '社会的公共的意義', '的確かつ誠実', '社会一般の信頼と期待'], characterId: 'sekimu_r', skills: ['原文暗記'],
+    },
+    {
+      id: 'ch1-s4-003', ...s4, title: '良心・信用・秘密',
+      originalText: 'そのためには、まず、不動産鑑定士は、同法に規定されているとおり、良心に従い、誠実に不動産の鑑定評価を行い、専門職業家としての社会的信用を傷つけるような行為をしてはならないとともに、正当な理由がなくて、その職務上取り扱ったことについて知り得た秘密を他に漏らしてはならないことはいうまでもなく、さらに次に述べる事項を遵守して資質の向上に努めなければならない。',
+      explanation: '良心に従い誠実に行う・社会的信用を傷つけない・正当な理由なく秘密を漏らさない。そのうえで、次の（１）〜（５）を守って資質の向上に努める。',
+      keywords: ['良心', '社会的信用', '秘密', '資質の向上'], characterId: 'sekimu_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/appraiser_duties.webp',
+    },
+    {
+      id: 'ch1-s4-004', ...s4, title: '（１）不断の勉強と研鑚',
+      originalText: '（１）高度な知識と豊富な経験と的確な判断力とが有機的に統一されて、初めて的確な鑑定評価が可能となるのであるから、不断の勉強と研鑚とによってこれを体得し、鑑定評価の進歩改善に努力すること。',
+      explanation: '知識・経験・判断力が「有機的に統一」されて初めて的確な鑑定評価ができる。だから不断の勉強と研鑚で身につけ、進歩改善に努める。（第3節は「有機的かつ総合的に発揮」。言い回しの違いに注意）',
+      keywords: ['有機的に統一', '不断の勉強と研鑚', '進歩改善'], characterId: 'shishitsu_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/five_disciplines.webp',
+    },
+    {
+      id: 'ch1-s4-005', ...s4, title: '（２）分かり易く誠実に説明',
+      originalText: '（２）依頼者に対して鑑定評価の結果を分かり易く誠実に説明を行い得るようにするとともに、社会一般に対して、実践活動をもって、不動産の鑑定評価及びその制度に関する理解を深めることにより、不動産の鑑定評価に対する信頼を高めるよう努めること。',
+      explanation: '依頼者には結果を分かり易く誠実に説明できるようにし、社会一般には実践活動で鑑定評価と制度への理解を深めて、信頼を高める。',
+      keywords: ['依頼者', '分かり易く誠実に', '実践活動', '信頼を高める'], characterId: 'shishitsu_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/five_disciplines.webp',
+    },
+    {
+      id: 'ch1-s4-006', ...s4, title: '（３）公平妥当な態度',
+      originalText: '（３）不動産の鑑定評価に当たっては、自己又は関係人の利害の有無その他いかなる理由にかかわらず、公平妥当な態度を保持すること。',
+      explanation: '自分や関係人の利害があってもなくても、どんな理由があっても、公平妥当な態度を保つ。',
+      keywords: ['自己又は関係人', '利害の有無', '公平妥当な態度'], characterId: 'shishitsu_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/five_disciplines.webp',
+    },
+    {
+      id: 'ch1-s4-007', ...s4, title: '（４）専門職業家としての注意',
+      originalText: '（４）不動産の鑑定評価に当たっては、専門職業家としての注意を払わなければならないこと。',
+      explanation: '鑑定評価では、専門職業家としての注意を払う。',
+      keywords: ['専門職業家としての注意'], characterId: 'shishitsu_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/five_disciplines.webp',
+    },
+    {
+      id: 'ch1-s4-008', ...s4, title: '（５）引き受けてはならない場合',
+      originalText: '（５）自己の能力の限度を超えていると思われる不動産の鑑定評価を引き受け、又は縁故若しくは特別の利害関係を有する場合等、公平な鑑定評価を害する恐れのあるときは、原則として不動産の鑑定評価を引き受けてはならないこと。',
+      explanation: '能力の限度を超えそうな案件、縁故や特別の利害関係がある場合など、公平な鑑定評価を害する恐れがあるときは、原則として引き受けない。',
+      keywords: ['能力の限度', '縁故若しくは特別の利害関係', '公平な鑑定評価', '原則として'], characterId: 'shishitsu_r', skills: ['原文暗記'],
+      conceptImage: '/images/concepts/chapter01/five_disciplines.webp',
+    },
+  ],
+  concepts: [
+    {
+      id: 'appraiser_duties', title: '鑑定士の責務の全体像',
+      image: '/images/concepts/chapter01/appraiser_duties.webp', unitIds: ['ch1-s4-001', 'ch1-s4-003'],
+      caption: '土地の基本理念に立つ → 専門家としての地位を自覚する → 良心・社会的信用・秘密を守る → 資質の向上に努める。',
+    },
+    {
+      id: 'five_disciplines', title: '資質の向上のための5つの事項',
+      image: '/images/concepts/chapter01/five_disciplines.webp', unitIds: ['ch1-s4-004', 'ch1-s4-006', 'ch1-s4-008'],
+      caption: '（１）勉強と研鑚 （２）分かり易く誠実に説明 （３）公平妥当な態度 （４）専門職業家としての注意 （５）引き受けてはならない場合。',
+    },
+  ],
+  characters: [
+    {
+      id: 'sekimu_r', name: '鑑定士の責務', rarity: 'R', epithet: '信頼と期待に報いる者',
+      image: '/images/characters/chapter01/sekimu_r.webp',
+      unitIds: ['ch1-s4-001', 'ch1-s4-002', 'ch1-s4-003'],
+      motifs: ['土地基本法の基本理念', '投機的取引の否定', '専門家としての地位', '良心と誠実', '秘密を守る'],
+      profile: '胸に手を当てて誓いを立て、鍵のかかった帳簿を守り抜く。土地を投機の道具にさせない、揺るがない番人。',
+      artSpec: {
+        silhouette: '40代の男性。黒髪をきちんと後ろになでつけ、整えた口ひげ。深緑の礼服で背筋を伸ばし、片手を胸に当てて誓う立ち姿',
+        palette: ['深緑', '白', '金'],
+        props: ['錠前つきの帳簿（秘密を漏らさない）', '土地の基本理念を記した巻物（文字は入れない）', '足元に割れたサイコロ（投機的取引の否定）', '鑑定士の徽章'],
+        mustDifferFrom: '鑑定評価（赤茶の短髪・片眼鏡・腕まくり）や価格の特徴（束ねた黒髪の旅人）と似せない。礼服・口ひげ・なでつけた黒髪',
+      },
+    },
+    {
+      id: 'shishitsu_r', name: '資質の向上', rarity: 'R', epithet: '五つの心得を磨く見習い',
+      image: '/images/characters/chapter01/shishitsu_r.webp',
+      unitIds: ['ch1-s4-004', 'ch1-s4-005', 'ch1-s4-006', 'ch1-s4-007', 'ch1-s4-008'],
+      motifs: ['不断の勉強と研鑚', '分かり易く誠実な説明', '公平妥当な態度', '専門職業家としての注意', '引き受けない勇気'],
+      profile: '胸の五つの星は五つの心得。ノートは勉強と研鑚、水準器は公平妥当。手に余る依頼には、手のひらを向けて「待った」をかける。',
+      artSpec: {
+        silhouette: '20代前半の男性。癖のある明るい茶色の短髪とそばかす。見習いの作業着。片手を前に出して「待った」をするポーズ',
+        palette: ['若草色', '生成り', '青'],
+        props: ['胸に5つの星の徽章（5つの事項）', '使い込んだ分厚いノートと鉛筆（不断の勉強と研鑚）', '腰の水準器（公平妥当な態度）', '拡大鏡（専門職業家としての注意）'],
+        mustDifferFrom: '人文的特性の少年（ゴーグル・つんつん頭）より年上で落ち着いた青年にする。鑑定士の責務（礼服の中年）とも似せない',
+      },
+    },
+  ],
+  questions: [
+    { id: 'q4-001-a', unitId: 'ch1-s4-001', skill: '原文暗記', type: 'blank', prompt: '土地は、特に何の対象とされてはならない？', answer: '投機的取引', choices: ['投機的取引', '営利的取引', '短期的取引', '相対取引'] },
+    { id: 'q4-001-b', unitId: 'ch1-s4-001', skill: '原文暗記', type: 'blank', prompt: '何に定める土地についての基本理念？', answer: '土地基本法', choices: ['土地基本法', '国土利用計画法', '都市計画法', '不動産の鑑定評価に関する法律'] },
+    { id: 'q4-002-a', unitId: 'ch1-s4-002', skill: '原文暗記', type: 'blank', prompt: '不動産の鑑定評価の何を理解する？', answer: '社会的公共的意義', choices: ['社会的公共的意義', '社会的経済的意義', '公共的使命', '専門的責任'] },
+    { id: 'q4-002-b', unitId: 'ch1-s4-002', skill: '原文暗記', type: 'blank', prompt: '的確かつ何な鑑定評価活動の実践？', answer: '誠実', choices: ['誠実', '公正', '慎重', '迅速'] },
+    { id: 'q4-002-c', unitId: 'ch1-s4-002', skill: '原文暗記', type: 'blank', prompt: '誰の信頼と期待に報いなければならない？', answer: '社会一般', choices: ['社会一般', '依頼者', '国民全体', '市場参加者'] },
+    { id: 'q4-003-a', unitId: 'ch1-s4-003', skill: '原文暗記', type: 'blank', prompt: '同法に規定されているとおり、何に従う？', answer: '良心', choices: ['良心', '法令', '基準', '倫理'] },
+    { id: 'q4-003-b', unitId: 'ch1-s4-003', skill: '原文暗記', type: 'blank', prompt: '職務上知り得た何を他に漏らしてはならない？', answer: '秘密', choices: ['秘密', '情報', '事実', '資料'] },
+    { id: 'q4-003-c', unitId: 'ch1-s4-003', skill: '原文暗記', type: 'blank', prompt: '次に述べる事項を遵守して、何に努める？', answer: '資質の向上', choices: ['資質の向上', '能力の研鑚', '信頼の確保', '業務の改善'] },
+    { id: 'q4-004-a', unitId: 'ch1-s4-004', skill: '原文暗記', type: 'order', prompt: '（１）の3つを原文の順に並べよう', items: ['高度な知識', '豊富な経験', '的確な判断力'] },
+    { id: 'q4-004-b', unitId: 'ch1-s4-004', skill: '原文暗記', type: 'blank', prompt: '3つがどうなって、初めて的確な鑑定評価が可能？', answer: '有機的に統一', choices: ['有機的に統一', '総合的に発揮', '一体的に運用', '調和的に結合'] },
+    { id: 'q4-004-c', unitId: 'ch1-s4-004', skill: '原文暗記', type: 'blank', prompt: '不断の勉強と何とによって体得する？', answer: '研鑚', choices: ['研鑚', '経験', '実践', '修養'] },
+    { id: 'q4-005-a', unitId: 'ch1-s4-005', skill: '原文暗記', type: 'blank', prompt: '依頼者に対して、結果をどう説明する？', answer: '分かり易く誠実に', choices: ['分かり易く誠実に', '詳細かつ正確に', '速やかに丁寧に', '公平かつ中立に'] },
+    { id: 'q4-005-b', unitId: 'ch1-s4-005', skill: '原文暗記', type: 'blank', prompt: '社会一般に対して、何をもって理解を深める？', answer: '実践活動', choices: ['実践活動', '広報活動', '研修活動', '啓発活動'] },
+    { id: 'q4-006-a', unitId: 'ch1-s4-006', skill: '原文暗記', type: 'blank', prompt: '（３）どんな態度を保持する？', answer: '公平妥当な態度', choices: ['公平妥当な態度', '中立公正な態度', '独立不羈の態度', '誠実謙虚な態度'] },
+    { id: 'q4-006-b', unitId: 'ch1-s4-006', skill: '原文暗記', type: 'blank', prompt: '自己又は誰の利害の有無？', answer: '関係人', choices: ['関係人', '依頼者', '利害関係者', '第三者'] },
+    { id: 'q4-007-a', unitId: 'ch1-s4-007', skill: '原文暗記', type: 'blank', prompt: '（４）何の注意を払わなければならない？', answer: '専門職業家としての注意', choices: ['専門職業家としての注意', '善良な管理者の注意', '細心の注意', '相当の注意'] },
+    { id: 'q4-008-a', unitId: 'ch1-s4-008', skill: '原文暗記', type: 'pick', prompt: '（５）原則として引き受けてはならない場合の例を2つ選ぼう', answers: ['自己の能力の限度を超えている', '縁故若しくは特別の利害関係を有する'], choices: ['自己の能力の限度を超えている', '縁故若しくは特別の利害関係を有する', '依頼者が多数いる', '報酬が低額である', '対象不動産が遠方にある'] },
+    { id: 'q4-008-b', unitId: 'ch1-s4-008', skill: '原文暗記', type: 'blank', prompt: '公平な鑑定評価を害する恐れのあるときは？', answer: '原則として', choices: ['原則として', 'いかなる場合も', '例外なく', '当面の間'] },
+  ],
+};
+
+export const chapter01Sections: StudySection[] = [chapter01Section01, chapter01Section02, chapter01Section03, chapter01Section04];
+
+export const chapter01: StudyChapter = {
+  id: 'ch1', chapter, title: '不動産の鑑定評価に関する基本的考察',
+  outline: chapter01Outline, sections: chapter01Sections,
+};

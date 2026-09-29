@@ -127,3 +127,5 @@ html,body{height:100%;overflow:hidden;overscroll-behavior:none}
 .location-label{top:12px;bottom:auto;left:auto;right:0}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.chapter-stack{display:grid;gap:18px;min-width:0}.collection-page .section-title{flex-wrap:wrap}.collection-page .character-tabs{flex:1 1 100%;min-width:0;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:6px;scrollbar-width:thin}.collection-page .character-tabs button{flex:none;white-space:nowrap}
+@media(min-width:701px){.study-page{justify-content:flex-start}.study-page>:first-child{margin-top:auto}.study-page>:last-child{margin-bottom:auto}.skill-board{position:sticky;top:0;z-index:1}.collection-page .section-title{margin-bottom:8px}.portrait{height:calc(100dvh - 250px)}}@media(min-width:701px) and (max-height:820px){.collection-layout{height:calc(100dvh - 285px)}.portrait{height:100%}}
